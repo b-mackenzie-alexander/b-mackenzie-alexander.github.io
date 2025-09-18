@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title><!-- Page Title Here --></title>
-  <meta name="description" content="<!-- Page-specific description here -->" />
+  <title>Contact | Beatrice "Maestra" Mackenzie</title>
+  <meta name="description" content="Get in touch with Beatrice Mackenzie, cybersecurity engineer. Send a secure message via the terminal interface." />
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
@@ -16,7 +16,19 @@
 
   <!-- Main content -->
   <main>
-    <!-- PAGE-SPECIFIC CONTENT GOES HERE -->
+    <section class="contact-terminal">
+      <h2>Contact Node</h2>
+      <form id="contact-form">
+        <label for="username">&gt; username</label>
+        <input type="text" id="username" name="username" required />
+
+        <label for="message">&gt; message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit" class="transmit-btn">transmit</button>
+      </form>
+      <div id="form-response" class="response-text"></div>
+    </section>
   </main>
 
   <!-- Footer injection target -->
