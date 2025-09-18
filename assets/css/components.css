@@ -1,21 +1,81 @@
+/* Header and Footer */
 header, footer {
-    background-color: var(--grey-dark);
-    padding: var(--spacing);
-    text-align: center;
-  }
-  
-  nav a {
-    margin: 0 var(--spacing);
-    color: var(--deep-red);
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  nav a:hover {
-    color: var(--white);
-  }
-  
-  footer p {
-    font-size: 0.9rem;
-    color: var(--grey-light);
-  }
+  background-color: var(--grey-dark);
+  padding: var(--spacing);
+  text-align: center;
+}
+
+/* Navigation Links */
+nav a {
+  margin: 0 var(--spacing);
+  color: var(--deep-red);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--white);
+}
+
+/* Footer Text */
+footer p {
+  font-size: 0.9rem;
+  color: var(--grey-light);
+  font-family: var(--font-terminal);
+}
+
+/* Glitch Tags */
+.tag {
+  position: relative;
+  animation: glitch 2s infinite;
+  text-shadow: 0 0 2px var(--accent-glitch);
+}
+
+.tag:hover {
+  animation: glitch 0.6s infinite;
+}
+
+/* Glitch Keyframes */
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-1px, 1px); }
+  40% { transform: translate(1px, -1px); }
+  60% { transform: translate(-1px, 0); }
+  80% { transform: translate(1px, 1px); }
+  100% { transform: translate(0); }
+}
+
+/* Decrypt Button */
+#decrypt-btn {
+  margin-top: 1rem;
+  background-color: var(--black);
+  color: var(--deep-red);
+  border: 1px solid var(--deep-red);
+  padding: 0.4rem 1rem;
+  font-family: var(--font-terminal);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#decrypt-btn:hover {
+  background-color: var(--deep-red);
+  color: var(--black);
+}
+
+/* Decrypted Message */
+#decrypted-message {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--grey-light);
+  font-family: var(--font-terminal);
+}
+
+/* Visibility Utility */
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}

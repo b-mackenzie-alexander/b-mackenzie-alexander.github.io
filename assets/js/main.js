@@ -1,9 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
+  runHeroAnimation();
+  generateBinaryRain();
+  setupContactForm();
+  setupDecryptButton();
+});
+
+// 🧠 Hero typewriter animation
+function runHeroAnimation() {
   const intro = [
     'Initializing secure node...',
     'Authenticating user: Maestra',
     'Loading portfolio protocol...',
-    'Access granted.\nWelcome to the Databreak Network.'
+    'Access granted.\nWelcome to my digital domain.'
   ];
 
   const target = document.getElementById('intro-text');
@@ -25,11 +33,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  typeLine();
-});
+  if (target) typeLine();
+}
 
+// 🧠 Binary rain background
 function generateBinaryRain() {
   const binaryBg = document.querySelector('.binary-bg');
+  if (!binaryBg) return;
+
   for (let i = 0; i < 100; i++) {
     const bit = document.createElement('span');
     bit.textContent = Math.random() > 0.5 ? '1' : '0';
@@ -43,4 +54,28 @@ function generateBinaryRain() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', generateBinaryRain);
+// 🧠 Contact form transmission logic
+function setupContactForm() {
+  const form = document.getElementById('contact-form');
+  const response = document.getElementById('form-response');
+
+  if (!form || !response) return;
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    response.textContent = '>> transmission received. Awaiting response...';
+  });
+}
+
+// 🧠 Footer decrypt easter egg
+function setupDecryptButton() {
+  const button = document.getElementById('decrypt-btn');
+  const message = document.getElementById('decrypted-message');
+
+  if (!button || !message) return;
+
+  button.addEventListener('click', () => {
+    message.textContent = '>> 4265617472696365204D61636B656E7A696520416C6578616E646572';
+    message.classList.remove('hidden');
+  });
+}
