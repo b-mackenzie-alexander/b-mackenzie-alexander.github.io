@@ -19,3 +19,82 @@
     padding: 1rem;
     border-radius: 5px;
   }
+
+  /* Hacker-style hero section */
+.hero {
+  background-color: var(--black);
+  color: var(--deep-red);
+  font-family: 'Courier New', Courier, monospace;
+  padding: 3rem;
+  text-align: left;
+  white-space: pre-wrap;
+}
+
+.typewriter {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  border-left: 2px solid var(--deep-red);
+  padding-left: 1rem;
+  animation: blink-cursor 1s step-end infinite;
+}
+
+@keyframes blink-cursor {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: var(--deep-red); }
+}
+
+.projects {
+  font-family: 'Courier New', Courier, monospace;
+  color: var(--white);
+}
+
+.project-card {
+  background-color: var(--grey-dark);
+  border: 1px solid var(--deep-red);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(139, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: scale(1.02);
+}
+
+.project-card h3 {
+  color: var(--deep-red);
+  margin-bottom: 0.5rem;
+}
+
+.project-card p {
+  color: var(--grey-light);
+  font-size: 0.95rem;
+}
+
+.tag {
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  background-color: var(--black);
+  color: var(--deep-red);
+  border: 1px solid var(--deep-red);
+  font-size: 0.85rem;
+}
+
+.tag.exploit {
+  color: #ff4c4c;
+  border-color: #ff4c4c;
+}
+
+.tag.tool {
+  color: #00ffff;
+  border-color: #00ffff;
+}
+
+.tag.dashboard {
+  color: #00ff00;
+  border-color: #00ff00;
+}
