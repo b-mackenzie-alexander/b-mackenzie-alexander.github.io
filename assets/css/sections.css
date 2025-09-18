@@ -1,0 +1,21 @@
+.hero h2 {
+    color: var(--deep-red);
+    font-size: 2rem;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    margin-top: var(--spacing);
+  }
+  
+  .projects ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .projects li {
+    background-color: var(--grey-light);
+    margin: 0.5rem 0;
+    padding: 1rem;
+    border-radius: 5px;
+  }

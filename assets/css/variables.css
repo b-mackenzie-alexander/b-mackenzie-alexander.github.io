@@ -1,0 +1,10 @@
+:root {
+    --deep-red: #8B0000;
+    --black: #0f0f0f;
+    --white: #f0f0f0;
+    --grey-dark: #2e2e2e;
+    --grey-light: #555555;
+  
+    --font-main: 'Segoe UI', sans-serif;
+    --spacing: 1rem;
+  }

@@ -1,21 +1,6 @@
-body {
-    font-family: 'Segoe UI', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #0f0f0f;
-    color: #f0f0f0;
-  }
-  header, footer {
-    background: #1a1a1a;
-    padding: 1rem;
-    text-align: center;
-  }
-  nav a {
-    margin: 0 1rem;
-    color: #00ffff;
-    text-decoration: none;
-  }
-  section {
-    padding: 2rem;
-    text-align: center;
-  }
+/* style.css */
+@import url('reset.css');
+@import url('variables.css');
+@import url('layout.css');
+@import url('components.css');
+@import url('sections.css');
