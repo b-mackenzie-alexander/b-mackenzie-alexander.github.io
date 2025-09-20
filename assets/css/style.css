@@ -3,3 +3,21 @@
 @import url('layout.css');
 @import url('components.css');
 @import url('sections.css');
+
+html {
+    /* paint your root background here */
+    background-color: var(--black);
+  }
+  
+  body {
+    /* make body itself transparent so you see the canvas behind it */
+    background-color: transparent;
+  }
+  
+  /* lift all of your real content above the canvas */
+  #site-header,
+  main,
+  #site-footer {
+    position: relative;
+    z-index: 1;
+  }
