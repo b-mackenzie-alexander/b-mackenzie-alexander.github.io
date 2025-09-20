@@ -12,7 +12,7 @@ function runHeroAnimation() {
 
   const intro = [
     'Initializing secure node...',
-    'Authenticating user: Maestra',
+    'Authenticating user...',
     'Loading portfolio protocol...',
     'Access granted.\nWelcome to my digital domain.'
   ];
