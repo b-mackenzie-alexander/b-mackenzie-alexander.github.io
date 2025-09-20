@@ -1,15 +1,19 @@
 // =============================
-// main.js — Safe, Modular Setup
+// main.js — Diagnostic Version
 // =============================
 
-// 🧠 Hero typewriter animation (homepage only)
+console.log('[main.js] Script loaded');
+
+// 🧠 Hero typewriter animation
 function runHeroAnimation() {
+  console.log('[runHeroAnimation] Initializing');
   const target = document.getElementById('intro-text');
-  if (!target) return; // Exit if not on homepage
+  if (!target) {
+    console.warn('[runHeroAnimation] #intro-text not found');
+    return;
+  }
 
-  // Clear any existing text to avoid duplicate runs
   target.textContent = '';
-
   const intro = [
     'Initializing secure node...',
     'Authenticating user: Maestra',
@@ -38,12 +42,15 @@ function runHeroAnimation() {
   typeLine();
 }
 
-// 🧠 Binary background initialization with glitch flicker
+// 🧠 Binary background with glitch diagnostics
 function initBinaryBackground() {
+  console.log('[initBinaryBackground] Initializing');
   const bgContainer = document.querySelector('.binary-bg');
-  if (!bgContainer) return;
+  if (!bgContainer) {
+    console.warn('[initBinaryBackground] .binary-bg not found');
+    return;
+  }
 
-  // Create and style the canvas
   const canvas = document.createElement('canvas');
   Object.assign(canvas.style, {
     position: 'fixed',
@@ -55,15 +62,22 @@ function initBinaryBackground() {
     backgroundColor: 'var(--black)'
   });
   bgContainer.appendChild(canvas);
+  console.log('[initBinaryBackground] Canvas appended');
 
   const ctx = canvas.getContext('2d');
+  const fontSize = 14;
+  const binaryChars = '01';
 
-  // Resolve CSS font variable for canvas
   const fontFamily = getComputedStyle(document.documentElement)
     .getPropertyValue('--font-terminal')
     .trim() || 'monospace';
+  const binaryColor = getComputedStyle(document.documentElement)
+    .getPropertyValue('--deep-red')
+    .trim() || '#ff4c4c';
 
-  const fontSize = 14;
+  console.log(`[initBinaryBackground] Font: ${fontFamily}`);
+  console.log(`[initBinaryBackground] Color: ${binaryColor}`);
+
   let columns, drops;
 
   function resizeCanvas() {
@@ -71,86 +85,73 @@ function initBinaryBackground() {
     canvas.height = window.innerHeight;
     columns = Math.floor(canvas.width / fontSize);
     drops = Array(columns).fill(1);
+    console.log(`[initBinaryBackground] Canvas resized: ${canvas.width}x${canvas.height}`);
   }
   resizeCanvas();
   window.addEventListener('resize', resizeCanvas);
 
-  const binaryChars = '01';
-
-  // Glitch state
   let glitchActive = false;
   let glitchTimer = 0;
 
   function triggerGlitch() {
     glitchActive = true;
-    glitchTimer = 5; // frames of glitch
+    glitchTimer = 5;
+    console.log('[initBinaryBackground] Glitch triggered');
   }
 
   function draw() {
-    // Fade the canvas slightly to create trailing effect
-    ctx.fillStyle = glitchActive
-      ? 'rgba(0, 0, 0, 0.2)' // heavier fade during glitch
-      : 'rgba(0, 0, 0, 0.05)';
+    ctx.fillStyle = glitchActive ? 'rgba(0,0,0,0.2)' : 'rgba(0,0,0,0.05)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    ctx.fillStyle = glitchActive ? '#ff4c4c' : getComputedStyle(document.documentElement).getPropertyValue('--deep-red').trim();
+    ctx.fillStyle = glitchActive ? '#ff4c4c' : binaryColor;
     ctx.font = `${fontSize}px ${fontFamily}`;
 
     for (let i = 0; i < drops.length; i++) {
       const text = binaryChars.charAt(Math.floor(Math.random() * binaryChars.length));
       let x = i * fontSize;
       let y = drops[i] * fontSize;
-
-      // Slight horizontal jitter during glitch
-      if (glitchActive) {
-        x += (Math.random() - 0.5) * 4;
-      }
-
+      if (glitchActive) x += (Math.random() - 0.5) * 4;
       ctx.fillText(text, x, y);
-
-      // Reset drop to top randomly after it passes the bottom
-      if (y > canvas.height && Math.random() > 0.975) {
-        drops[i] = 0;
-      }
+      if (y > canvas.height && Math.random() > 0.975) drops[i] = 0;
       drops[i]++;
     }
 
-    // Handle glitch timing
     if (glitchActive) {
       glitchTimer--;
-      if (glitchTimer <= 0) glitchActive = false;
-    } else {
-      // Random chance to trigger glitch
-      if (Math.random() > 0.995) {
-        triggerGlitch();
+      if (glitchTimer <= 0) {
+        glitchActive = false;
+        console.log('[initBinaryBackground] Glitch ended');
       }
+    } else if (Math.random() > 0.995) {
+      triggerGlitch();
     }
   }
 
   setInterval(draw, 50);
+  console.log('[initBinaryBackground] Draw loop started');
 }
 
-// 🧠 Contact form handler (contact page only)
+// 🧠 Contact form diagnostics
 function setupContactForm() {
+  console.log('[setupContactForm] Initializing');
   const form = document.getElementById('contact-form');
   const response = document.getElementById('form-response');
-  if (!form || !response) return;
+  if (!form || !response) {
+    console.warn('[setupContactForm] Form or response element missing');
+    return;
+  }
 
   const submitBtn = form.querySelector('button[type="submit"]');
-
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const username = form.username.value.trim();
     const message = form.message.value.trim();
-
     if (!username || !message) {
       response.textContent = 'Error: Missing username or message.';
       return;
     }
 
-    // Disable button while sending
     if (submitBtn) submitBtn.disabled = true;
-
     response.textContent = 'Transmitting...';
     setTimeout(() => {
       response.textContent = `Message from ${username} received securely.`;
@@ -160,11 +161,15 @@ function setupContactForm() {
   });
 }
 
-// 🧠 Decrypt button handler (wherever present)
+// 🧠 Decrypt button diagnostics
 function setupDecryptButton() {
+  console.log('[setupDecryptButton] Initializing');
   const btn = document.getElementById('decrypt-btn');
   const msg = document.getElementById('decrypted-message');
-  if (!btn || !msg) return;
+  if (!btn || !msg) {
+    console.warn('[setupDecryptButton] Button or message element missing');
+    return;
+  }
 
   btn.addEventListener('click', () => {
     const isHidden = msg.classList.toggle('hidden');
@@ -176,6 +181,7 @@ function setupDecryptButton() {
 // Initialize on DOM ready
 // =============================
 document.addEventListener('DOMContentLoaded', () => {
+  console.log('[main.js] DOMContentLoaded fired');
   [
     runHeroAnimation,
     initBinaryBackground,
@@ -183,9 +189,10 @@ document.addEventListener('DOMContentLoaded', () => {
     setupDecryptButton
   ].forEach(fn => {
     try {
+      console.log(`[main.js] Running ${fn.name}`);
       fn();
     } catch (e) {
-      console.error(`Error in ${fn.name}:`, e);
+      console.error(`[main.js] Error in ${fn.name}:`, e);
     }
   });
 });
